@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-xs-10">
+        <app-shopping-edit></app-shopping-edit>
+        <hr />
+        <ul class="list-group">
+            <a 
+            class="list-group-item" 
+            style="cursor: 'pointer'" 
+            [ngStyle]="{'background-color': slService.selectedIngredient && slService.selectedIngredient.name === ingredient.name ? '#f5f5f5' : '#ffffff'}" 
+            *ngFor="let ingredient of ingredients" (click)="selectIngredient(ingredient)"
+            >
+            {{ ingredient.name }} ({{ ingredient.amount }})
+        </a>
+        </ul>
+    </div>
+</div>
