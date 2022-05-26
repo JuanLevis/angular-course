@@ -7,7 +7,8 @@
             class="list-group-item" 
             style="cursor: 'pointer'" 
             [ngStyle]="{'background-color': slService.selectedIngredient && slService.selectedIngredient.name === ingredient.name ? '#f5f5f5' : '#ffffff'}" 
-            *ngFor="let ingredient of ingredients" (click)="selectIngredient(ingredient)"
+            *ngFor="let ingredient of ingredients; let i = index" (click)="selectIngredient(ingredient)"
+            (click)="onEditItem(i)" 
             >
             {{ ingredient.name }} ({{ ingredient.amount }})
         </a>
