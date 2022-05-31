@@ -6,6 +6,7 @@ import { authErrorCodes } from '../shared/constants';
 import { authUrl } from '../shared/constants';
 import { User } from './user.model';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 export interface AuthResponse {
   kind?: string;
@@ -27,7 +28,7 @@ export class AuthService {
   signup(email: string, password: string) {
     return this.httpClient
       .post<AuthResponse>(
-        `${authUrl}/accounts:signUp?key=AIzaSyAAxx25B8pqvpNflcM17Dfa-vCMwI3YBxo`,
+        `${authUrl}/accounts:signUp?key=${environment.firebaseApiKey}`,
         {
           email: email,
           password: password,
@@ -50,7 +51,7 @@ export class AuthService {
   login(email: string, password: string) {
     return this.httpClient
       .post<AuthResponse>(
-        `${authUrl}/accounts:signInWithPassword?key=AIzaSyAAxx25B8pqvpNflcM17Dfa-vCMwI3YBxo`,
+        `${authUrl}/accounts:signInWithPassword?key=${environment.firebaseApiKey}`,
         {
           email: email,
           password: password,
